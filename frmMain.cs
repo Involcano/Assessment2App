@@ -25,6 +25,13 @@ namespace A2NestedClass
         // contains all the players in the game
         List<Player> allPlayers = new List<Player>();
 
+
+        // this is to demonstrate version control
+        private void versionControl()
+        {
+            Console.WriteLine("Test");
+        }
+
         public frmMain()
         {
             InitializeComponent();
@@ -36,11 +43,6 @@ namespace A2NestedClass
             AllowDrop = true;
         }
 
-        // this is to demonstrate version control
-        private void versionControl()
-        {
-            Console.WriteLine("Test");
-        }
 
 
 
