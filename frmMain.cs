@@ -26,12 +26,6 @@ namespace A2NestedClass
         List<Player> allPlayers = new List<Player>();
 
 
-        // this is to demonstrate version control
-        private void versionControl()
-        {
-            Console.WriteLine("Test");
-        }
-
         public frmMain()
         {
             InitializeComponent();
@@ -84,6 +78,11 @@ namespace A2NestedClass
         }
 
 
+        // this is to demonstrate version control
+        private void versionControl()
+        {
+            Console.WriteLine("Test");
+        }
 
         // generates a random name for a player
         private string GenerateRandomName()
