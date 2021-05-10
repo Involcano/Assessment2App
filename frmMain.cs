@@ -3,7 +3,7 @@
 // Date: 7-5-2021
 // Software: Visual Studio 2019
 // Platform: Windows
-// Purpose: Main form for the program. Demonstrates use of nested classes for A2
+// Purpose: Main form for the program. Demonstrates use of nested classes for A2, use of IComparable for A2 and drag and drop for A2
 //*****************************
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,20 @@ namespace A2NestedClass
         {
             InitializeComponent();
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // sets allow drop to true
+            AllowDrop = true;
+        }
+
+        // this is to demonstrate version control
+        private void versionControl()
+        {
+            Console.WriteLine("Test");
+        }
+
+
 
         private void btnCreateRandomPlayer_Click(object sender, EventArgs e)
         {
@@ -116,6 +130,29 @@ namespace A2NestedClass
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmMain_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void frmMain_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] fileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+
+            foreach (string file in fileList)
+            {
+                // assigns text to filename
+                lblFileDrop.Text = file;
+            }
         }
 
     }
